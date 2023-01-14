@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Application.Repositories;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
@@ -7,7 +8,7 @@ namespace Application
     {
         public static IServiceCollection RegisterApplicationDependencies(this IServiceCollection services, IConfiguration configuration)
         {
-
+            services.AddSingleton<IAppSettingsRepository, AppSettingsRepository>();
 
             return services;
         }

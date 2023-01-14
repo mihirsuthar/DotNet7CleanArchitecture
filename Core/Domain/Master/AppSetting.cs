@@ -2,7 +2,7 @@
 
 namespace Domain.Master
 {
-    public class AppSetting : BaseEntity<Guid>
+    public class AppSetting : BaseEntity<Guid>, ICloneable
     {
         /// <summary>
         /// Gets or sets the ReferenceKey
@@ -20,5 +20,10 @@ namespace Domain.Master
         /// Gets or sets the Type
         /// </summary>
         public string Type { get; set; } = String.Empty;
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

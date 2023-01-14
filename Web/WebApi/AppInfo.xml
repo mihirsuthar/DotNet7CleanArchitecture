@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:WebApi.Controllers.AppSettingsController.Get">
+            <summary>
+            Returns existing app settings
+            </summary>
+            <returns>List of app settings</returns>
+            <response code="200">List of existing app settings</response>
+        </member>
+        <member name="M:WebApi.Controllers.AppSettingsController.Create(Application.Requests.CreateAppSettingRequest)">
+            <summary>
+            Creates new app setting
+            </summary>
+            <param name="request" required="true">New app setting request</param>
+            <returns>Guid of newly created app setting</returns>
+            <response code="201">   Guid of newly created app setting</response>
+            <response code="400">Unaccessible request</response>
+        </member>
+        <member name="M:WebApi.Controllers.AppSettingsController.Update(Application.Requests.UpdateAppSettingRequest)">
+            <summary>
+            Updates existing app setting
+            </summary>
+            <param name="request">Edit app settings request</param>
+            <returns></returns>
+            <response code="204">App setting updated successfully</response>
+            <response code="400">Unaccessible request</response>
+        </member>
+        <member name="M:WebApi.Controllers.AppSettingsController.Delete(System.String)">
+            <summary>
+            Deletes existing app setting
+            </summary>
+            <param name="appSettingId">Guid of existing app setting</param>
+            <returns></returns>
+            <response code="204">App setting deleted successfully</response>
+            <response code="400">Unaccessible request</response>
+        </member>
+    </members>
+</doc>
