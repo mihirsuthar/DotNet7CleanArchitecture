@@ -5,6 +5,7 @@ namespace Application.Repositories
     public interface IAppSettingsRepository
     {
         public List<AppSetting> GetAppSettings();
+        public AppSetting GetAppSettingById(Guid id);
         public Guid CreateAppSetting(AppSetting setting);
         public Guid UpdateAppSetting(AppSetting setting);
         public Guid DeleteAppSetting(Guid appSettingId);
@@ -52,6 +53,11 @@ namespace Application.Repositories
             }
 
             return setting.Id;
+        }
+
+        public AppSetting GetAppSettingById(Guid id)
+        {
+            return _appSettings.Find(a => a.Id == id)!;
         }
     }
 }

@@ -11,6 +11,14 @@
             <returns>List of app settings</returns>
             <response code="200">List of existing app settings</response>
         </member>
+        <member name="M:WebApi.Controllers.AppSettingsController.GetById(System.String)">
+            <summary>
+            Returns existing app setting
+            </summary>
+            <param name="appSettingId">Guid of existing app setting</param>
+            <returns>App setting</returns>
+            <response code="200">Existing app setting</response>
+        </member>
         <member name="M:WebApi.Controllers.AppSettingsController.Create(Application.Requests.CreateAppSettingRequest)">
             <summary>
             Creates new app setting

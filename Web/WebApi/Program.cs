@@ -24,17 +24,26 @@ builder.Services.AddSwaggerGen(option =>
     option.IncludeXmlComments(xmlPath);
 });
 
+builder.Services.AddCors(options => options.AddPolicy("corsPolicy", builder => 
+{
+    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 // Infrastructure - Dependency Injection
 builder.Services.AddPersistence(builder.Configuration);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
+
+app.UseCors("corsPolicy");
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

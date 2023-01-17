@@ -31,6 +31,20 @@ namespace WebApi.Controllers
         }
 
         /// <summary>
+        /// Returns existing app setting
+        /// </summary>
+        /// <param name="appSettingId">Guid of existing app setting</param>
+        /// <returns>App setting</returns>
+        /// <response code="200">Existing app setting</response>
+        [Produces("application/json")]
+        [ProducesResponseType(typeof(AppSetting), statusCode: StatusCodes.Status200OK)]
+        [HttpGet("{appSettingId}")]
+        public IActionResult GetById([FromRoute] string appSettingId)
+        {
+            return new OkObjectResult(_appSettingsRepository.GetAppSettingById(Guid.Parse(appSettingId)));
+        }
+
+        /// <summary>
         /// Creates new app setting
         /// </summary>
         /// <param name="request" required="true">New app setting request</param>
